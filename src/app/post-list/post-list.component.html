@@ -1,0 +1,79 @@
+<div class="container-fluid">
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://cdn2.unrealengine.com/battle-pass-chapter-2-season-6-1920x1080-dc8eb73dc494.jpg" class="d-block w-100" style="filter: brightness(40%); max-width:100%; max-height:400px; object-fit: cover !important;" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1 class="display-1">Discuss your favorite games</h1>
+        <p class="lead">geek up with fellow gamers..</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://venturebeat.com/wp-content/uploads/2020/03/unnamed-23.jpg" class="d-block w-100" style="filter: brightness(40%); max-width:100%; max-height:400px; object-fit: cover !important;" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1 class="display-1">Multi-User interactive portal</h1>
+        <p class="lead">Among us, Call of duty, Fortnite...</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.cnet.com/a/img/C_J1PUATAExNP3p1z2e0x083KEk=/0x154:1000x778/1200x675/2020/10/21/9f706d3a-dc30-4937-8195-47aa345288e5/promofinal.jpg" class="d-block w-100" style="filter: brightness(40%); max-width:100%; max-height:400px; object-fit: cover !important;" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1 class="display-1">Sign Up For Free</h1>
+        <!-- <p>Some representative placeholder content for the third slide.</p> -->
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<br><br>
+<hr>
+
+<br>
+
+    <div class="container">
+
+        <h2 class="display-5">BROWSE POPULAR DISCUSSIONS BELOW..</h2><br><br>
+        <div class="row" *ngFor="let post of data">
+
+            <div class="col-3">
+                <img src="https://cdn.mos.cms.futurecdn.net/MMwRCjVEaoJPP4dBBugWFY-1200-80.jpg" alt="" class="img-thumbnail" style="object-fit: cover;">
+            </div>
+    
+            <div class="col-6">
+                <a routerLink="/detail/{{post._id}}">
+                    <h3 class="display-5" appHighlight>{{post.post_title | uppercase }}</h3>
+                </a>
+                <p class="lead" appHighlight>{{post.post_description | slice:0:100}}</p>
+                <br>
+                  
+                 <figcaption class="blockquote-footer">
+                    posted by  <span class="bi bi-person">:  </span> <cite title="Source Title">{{post.user_name}}</cite>
+                </figcaption>
+                <!-- <small><a href="update/{{post._id}}">Edit</a></small> &nbsp;&nbsp;&nbsp;&nbsp;
+                <small><a href="delete/{{post._id}}">Delete</a></small> -->
+                <!-- <br> -->
+                <hr>
+                <br>
+                <!-- <br> -->
+            </div>  
+            <br>
+        <br>
+      </div>
+    </div>
+
+
+</div>

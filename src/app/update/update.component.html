@@ -1,0 +1,45 @@
+<body class="bgimage">
+  
+  <div class="container-fluid p-5">
+      <h2 class="display-2 text-light">Update your post here.</h2>
+      
+      <form #postForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+  
+        
+      <!-- {{ postForm.value | json }} -->
+  
+      <hr>
+  
+      <!-- {{postModel | json }} -->
+  
+        <div class="form-group">
+          <label class="lead text-light">Post Title</label>
+          <input type="text" #post_title="ngModel" required class="form-control" [class.is-invalid]="post_title.invalid && post_title.touched" name="post_title" [(ngModel)]="postModel.post_title">
+          <small class="text-danger" [class.d-none]="post_title.valid || post_title.untouched">Post Title is required</small>
+        </div>
+    
+        <div class="form-group">
+          <label class="lead text-light">Post Description</label>
+          <input type="text" #post_description="ngModel" required class="form-control" [class.is-invalid]="post_description.invalid && post_description.touched" name="post_description" [(ngModel)]="postModel.post_description">
+          <small class="text-danger" [class.d-none]="post_description.valid || post_description.untouched">Post Description is required</small>
+        </div>
+        
+        <hr>
+        <button class="btn btn-outline-light" type="submit"><i class="bi bi-pen-fill"></i>   Confirm Edit</button>
+  
+        <br><br>
+      </form>
+  
+      <div class="alert alert-danger" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <div class="row"  *ngIf="showMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+              <strong>Post Updated  Successfully!</strong> Please click here to <a routerLink="/main">go to main page</a>
+          </p>
+        </div>
+      </div>
+    </div>
+</body>
+<br>

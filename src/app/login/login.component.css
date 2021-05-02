@@ -1,0 +1,21 @@
+.image-holder {
+    position: relative;
+  }
+  
+  .text-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #f2e9e4;
+    transform: translate(-50%, -50%);
+    font-size: larger;
+  }
+
+.registration-block{
+    background-color: #cb997e;
+}
+
+
+.text-light{
+    color: #cb997e;
+}

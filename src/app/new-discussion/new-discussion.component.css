@@ -1,0 +1,17 @@
+.bgimage {
+    background-image: url("https://i.pinimg.com/originals/f0/26/ee/f026ee77b11e2ae067bae77fbe82c62c.jpg");
+    background-color: #cccccc;
+    /* height: 500px; */
+    /* width: 1000px; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .text-light{
+    color: #cb997e;
+}
+
+  
+    

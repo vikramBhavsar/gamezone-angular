@@ -1,0 +1,82 @@
+
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-4">
+            
+            <img src="https://cdn.mos.cms.futurecdn.net/MMwRCjVEaoJPP4dBBugWFY-1200-80.jpg" alt="" class="img-fluid">
+            
+        </div>
+
+        <div class="col-8">
+            <a routerLink="/detail/{{postDetail._id}}">
+                <h3 class="display-5" appHighlight>{{postDetail.post_title}}</h3>
+            </a>
+            <button class="btn btn-light"
+                (click)="condition = !condition"
+                [ngClass] = "{ 'a': condition, 'b': !condition }" >
+                {{condition ? 'Show Description ' : 'Hide'}}
+            </button>
+            <br><br>
+
+            <p class="lead" *appUnless="condition" class="unless a" appHighlight>
+                {{postDetail.post_description}}
+                </p>
+
+                <p class="lead" *appUnless="!condition" class="unless b" appHighlight>
+                    The Description is currently Hidden. Click on the button to see
+                </p>
+
+            <!-- <p appHighlight>{{postDetail.post_description}}</p> -->
+            <br>
+            <br>
+            <footer class="blockquote-footer">by: {{postDetail.user_name}}</footer>
+        </div>  
+
+        <div class="col-12">
+            <hr>
+            <h4 class="display-5">Comments</h4>
+
+            <div *ngIf="isLogggedIn">
+                
+                <p class="lead">Comment as {{current_user}}</p>
+                <form #commentForm="ngForm" (ngSubmit)="onSubmit()" action="">
+                      <div class="mb-3">
+                        <textarea class="lead" placeholder="Enter your thoughts" class="form-control" id="exampleFormControlTextarea1" name="comment" rows="3" [(ngModel)]="commentModel.comment"></textarea>
+                      </div>
+
+                      <button type="submit" class="btn btn-outline-dark">Comment</button>
+                </form>
+            </div>
+
+            <hr>
+            <p class="lead">Other comments</p>
+
+            <div class="row" *ngFor="let sinComment of commentData">
+
+                <div class="col-1">
+                    <span class="badge bg-dark">by: {{sinComment.by_user}}</span>
+                </div>
+
+                <div class="col-11">
+
+                    <div *ngIf="sinComment.loggedIn; else notUser">
+                        <p class="lead">{{sinComment.comment}}   <button (click)="onDeleteComment(sinComment._id)" class="btn btn-danger badge bg-danger">Delete Comment</button></p>
+                    </div>
+                    <ng-template #notUser>
+                        <p class="lead">{{sinComment.comment}}</p>
+                    </ng-template>
+                    
+                </div>
+                
+                <br><br><br>
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+</div>
+
+<!-- {{data._id}}
+{{data.post_title}} -->

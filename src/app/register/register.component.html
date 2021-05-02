@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <br>
+
+  <div class="container registration-block rounded">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-6  p-5">
+
+        <div class="image-holder">
+            <img src="https://i.pinimg.com/originals/3a/91/71/3a9171ab0ce3930fbdac707783e7deee.png" class="img-fluid" style="filter: brightness(40%);" alt="">
+          <div class="text-block text-center">
+              <h1 class="display-1">GAMEZONE</h1>
+              <p class="lead">Free registration</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-6 pt-5">
+        
+        <div class="text-center">
+          <h2 class="display-1 text-light">WELCOME TO GAMEZONE</h2>
+        </div>
+  
+        <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+  
+          <!-- {{ userForm.value | json }} -->
+          <!-- {{userModel | json }} -->
+      
+            <div class="form-group">
+              <label class="lead text-light">Enter Username</label>
+              <input type="text" class="lead" #name="ngModel" placeholder="Username" required class="form-control" name="name" [(ngModel)]="userModel.name">
+              <!-- <small class="text-danger" [class.d-none]="post_title.valid || post_title.untouched">Post Title is required</small> -->
+            </div>
+            <br>
+        
+            <div class="form-group">
+              <label class="lead text-light">Password</label>
+              <input type="password" class="lead" #password="ngModel"  placeholder="Password" required class="form-control" name="post_description" [(ngModel)]="userModel.password">
+              <!-- <small class="text-danger" [class.d-none]="post_description.valid || post_description.untouched">Post Description is required</small> -->
+            </div>
+            
+            <hr>
+
+            <div class="text-center">
+              <button class="btn btn-outline-dark rounded-pill" type="submit">Register New user</button>
+            </div>
+        
+      
+            <br><br>
+          </form>
+      </div>
+    </div>
+
+  </div>
+
+  <br><br>
+  <!-- <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+
+    <hr>
+
+
+      <div class="form-group">
+        <label>Enter Username</label>
+        <input type="text" #name="ngModel" required class="form-control" name="name" [(ngModel)]="userModel.name">
+      </div>
+  
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" #password="ngModel" required class="form-control" name="post_description" [(ngModel)]="userModel.password">
+      </div>
+      
+      <hr>
+  
+      <button class="btn btn-outline-dark" type="submit">Register New user</button>
+
+      <br><br>
+    </form> -->
+
+
+    <div class="alert alert-danger" *ngIf="errorMsg">
+      {{errorMsg}}
+    </div>
+    <div class="row"  *ngIf="showMsg">
+      <div class="col-xs-12">
+        <p class="alert alert-success">
+            <strong>Registration Success!</strong> Please click here to <a routerLink="/login">LOGIN</a>
+        </p>
+      </div>
+    </div>
+  </div>

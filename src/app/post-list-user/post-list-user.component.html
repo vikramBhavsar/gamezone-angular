@@ -1,0 +1,31 @@
+
+<div class="container">
+
+<div *ngIf="isLogggedIn; then userLogged else userNotLogged"></div>
+<ng-template #userLogged> <h5 class="display-5">All post by,  {{current_user}}</h5> </ng-template>
+<ng-template #userNotLogged>Not logged in</ng-template>
+
+  <div class="row" *ngFor="let post of data">
+
+        <div class="col-3">
+            <img src="https://cdn.mos.cms.futurecdn.net/MMwRCjVEaoJPP4dBBugWFY-1200-80.jpg" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-6">
+            <a routerLink="/detail/{{post._id}}">
+                <h3 class="display-1=5" appHighlight>{{post.post_title | uppercase }}</h3>
+            </a>    
+            <p class="lead" appHighlight>{{post.post_description | slice:0:100}}</p>
+
+            <!-- <br>     -->
+            <small><a routerLink="/update/{{post._id}}">Edit</a></small> &nbsp;&nbsp;&nbsp;&nbsp;
+            <small><a routerLink="/delete/{{post._id}}">Delete</a></small>
+            <!-- <br> -->
+            <hr>
+            <!-- <br> -->
+            <br>
+        </div>  
+        <br>
+    <br>
+  </div>
+</div>
